@@ -1,0 +1,598 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reving - Personal Website</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="kurdish.png" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  
+</head>
+
+<body>
+
+<header>
+  <div class="top-header">
+    <div class="top-header-left">
+      <button id="darkModeToggle" class="dark-mode-btn" title="Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button id="openCourseSelector" class="course-search-btn" title="Go to Course Year and Semester">
+        <i class="fas fa-search"></i>
+      </button>
+      <button id="openNote" class="note-info-btn" title="About Course">
+        <i class="fas fa-note-sticky"></i>
+      </button>
+      <button id="scrollToSocial" class="social-scroll-btn" title="Social Media">
+        <i class="fas fa-users"></i> Social
+      </button>
+
+      <!-- Privacy Icon Button -->
+      <button id="privacyBtn" class="privacy-btn" title="Privacy Information">
+        <i class="fas fa-shield-alt"></i> Privacy
+      </button>
+    </div>
+  </div>
+
+  <img src="kurdish.png" alt="Kurdish flag" class="moving-flag" />
+ 
+<div>
+  <img src="kurd01.png" alt="Kurdish flag" class="moving-flag" />
+
+</div>
+
+
+  
+
+  <h1>
+    Reving's Personal Website
+    <img src="kurdish.png" alt="Kurdish flag" style="width:32px; height:32px; vertical-align:middle; margin-left:8px;" />
+  </h1>
+</header>
+
+
+
+<!-- Privacy Modal -->
+<div id="privacyModal" class="info-modal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="info-content">
+    <span class="close-btn" id="privacyCloseBtn" title="Close">&times;</span>
+    <h1 id="privacyTitle">Be careful</h1>
+    <p>Please be aware of how your personal data is handled on this website. Your privacy matters to us.</p>
+    <button id="privacyReadBtn">I read</button>
+  </div>
+</div>
+
+<script>
+  const privacyBtn = document.getElementById('privacyBtn');
+  const privacyModal = document.getElementById('privacyModal');
+  const privacyCloseBtn = document.getElementById('privacyCloseBtn');
+  const privacyReadBtn = document.getElementById('privacyReadBtn');
+
+  function openPrivacyModal() {
+    privacyModal.style.display = 'flex';
+  }
+
+  function closePrivacyModal() {
+    privacyModal.style.display = 'none';
+  }
+
+  privacyBtn.addEventListener('click', openPrivacyModal);
+  privacyCloseBtn.addEventListener('click', closePrivacyModal);
+  privacyReadBtn.addEventListener('click', closePrivacyModal);
+
+  // Close modal when clicking outside content
+  privacyModal.addEventListener('click', (e) => {
+    if (e.target === privacyModal) {
+      closePrivacyModal();
+    }
+  });
+</script>
+
+ 
+
+<!-- Modal Box -->
+<div id="infoModal" class="info-modal" role="dialog" aria-modal="true" aria-labelledby="infoTitle" aria-describedby="infoDesc">
+  <div class="info-content">
+    <span class="close-btn" id="closeInfo" aria-label="Close">&times;</span>
+    <h1 id="infoTitle">Hi, I'm Reving</h1>
+    <h4>This is my course</h4>
+    <p id="infoDesc">
+      Welcome to my course section! Here you will find detailed course materials, resources, and schedules organized by year and semester.
+      I put a lot of effort into creating clear and useful content to help you succeed.
+    </p>
+    <a href="mailto:reving.tech@example.com" class="account-link" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-envelope"></i> reving.tech@example.com
+    </a>
+  </div>
+</div>
+
+ 
+
+ 
+
+<script>
+  // Scroll to course section on search click
+  document.getElementById('openCourseSelector').addEventListener('click', () => {
+    document.querySelector('section.kurdish-theme')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Scroll to footer with class animated-footer on social button click
+  document.getElementById('scrollToSocial').addEventListener('click', () => {
+    document.querySelector('footer.animated-footer')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Toggle dark mode
+  document.getElementById('darkModeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+
+  // Show note modal
+  document.getElementById('openNote').addEventListener('click', () => {
+    document.getElementById('infoModal').style.display = 'block';
+  });
+
+  // Hide note modal on close button click
+  document.getElementById('closeInfo').addEventListener('click', () => {
+    document.getElementById('infoModal').style.display = 'none';
+  });
+
+  // Hide note modal if clicking outside modal content
+  window.addEventListener('click', (e) => {
+    if (e.target.id === 'infoModal') {
+      e.target.style.display = 'none';
+    }
+  });
+</script>
+
+ 
+</head>
+<body>
+ 
+  <div class="content">
+    <section>
+    <section class="about-me">
+  <img src="reving_details.png" alt="Reving" 
+       style="
+         width: 80%;
+         height: 80%;
+         display: block;
+         margin: 0 auto 1rem;
+         border-radius: 13px;
+          object-fit: cover;
+       " />
+
+ <h2>About Me : <span id="animated-name" style="font-weight: bold;"></span><span id="cursor" style="font-weight: bold;">|</span></h2>
+<h5>
+  My name is Reving, I'm 22 years old. I graduated from the IT Department, Technical Institute.
+  Below is a detailed list of my academic courses throughout my studies.
+</h5>
+
+ 
+<script>
+  const text = "Reving Tech";
+  const container = document.getElementById('animated-name');
+  const cursor = document.getElementById('cursor');
+  let index = 0;
+  let isDeleting = false;
+
+  function typeDeleteLoop() {
+    if (!isDeleting) {
+      // Typing - green color
+      container.style.color = "green";
+      cursor.style.color = "green";
+
+      container.textContent = text.substring(0, index + 1);
+      index++;
+      if (index === text.length) {
+        isDeleting = true;
+        setTimeout(typeDeleteLoop, 1000);
+      } else {
+        setTimeout(typeDeleteLoop, 500);
+      }
+    } else {
+      // Deleting - blue color
+      container.style.color = "blue";
+      cursor.style.color = "blue";
+
+      container.textContent = text.substring(0, index - 1);
+      index--;
+      if (index === 0) {
+        isDeleting = false;
+        setTimeout(typeDeleteLoop, 150);
+      } else {
+        setTimeout(typeDeleteLoop, 150);
+      }
+    }
+  }
+
+  typeDeleteLoop();
+</script>
+
+</section>
+
+
+    <section>
+      <h2>My Skills & Courses</h2>
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Skills items injected here -->
+      </div>
+    </section>
+
+    <section class="kurdish-theme">
+      <h2>Select Course Year and Semester</h2>
+      <label for="yearSelect">Select Year:</label>
+      <select id="yearSelect" onchange="filterCourses()">
+        <option value="">Select Year</option>
+        <option value="year1">Year 1</option>
+        <option value="year2">Year 2</option>
+      </select>
+    
+
+      <label for="semesterSelect">Select Semester:</label>
+      <select id="semesterSelect" onchange="filterCourses()">
+        <option value="">Select Semester </option>
+        <option value="sem1">Semester 1</option>
+        <option value="sem2">Semester 2</option>
+      </select>
+    </section>
+
+    <section id="courseContainer" class="course-list"></section>
+  <h1>My Business Plan</h1>
+
+ <section class="business-plan">
+  <img src="reving_plan.png" alt="Reving Olan" 
+       style="
+         width: 100%;
+         max-height: 70%;
+         object-fit: contain;
+         border-radius: 12px;
+         display: block;
+         margin: 0 auto 1rem;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+       " />
+
+   <p>I am preparing to launch my business using HTML, CSS, and JavaScript. I aim to build interactive and modern web applications for clients and personal projects.</p>
+
+  <ul class="plan-tree">
+    <li>Web Technologies
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+      </ul>
+    </li>
+    <li>Microsoft Suite
+      <ul>
+        <li>Word</li>
+        <li>PowerPoint</li>
+        <li>Excel</li>
+        <li>Access</li>
+      </ul>
+    </li>
+    <li>Databases
+      <ul>
+        <li>Microsoft SQL Server</li>
+        <li>MySQL</li>
+      </ul>
+    </li>
+    <li>Networking
+      <ul>
+        <li>Cisco Packet Tracer</li>
+      </ul>
+    </li>
+    <li>Software & IDEs
+      <ul>
+        <li>MATLAB</li>
+        <li>Visual Studio</li>
+        <li>NetBeans IDE</li>
+      </ul>
+    </li>
+    <li>Programming Concepts
+      <ul>
+        <li>Design: Form (UI)</li>
+        <li>Code: Code-behind</li>
+        <li>JAVA</li>
+        <li>C#</li>
+        <li>Security Algorithms</li>
+        <li>Pedagogical Innovation</li>
+        <li>OS Algorithms</li>
+        <li>Logic Design & Algorithms</li>
+      </ul>
+    </li>
+    <li>Education</li>
+  </ul>
+</section>
+ 
+
+
+
+<div class="star-rating" id="starRating">
+  <i class="fas fa-star" data-value="1"></i>
+  <i class="fas fa-star" data-value="2"></i>
+  <i class="fas fa-star" data-value="3"></i>
+  <i class="fas fa-star" data-value="4"></i>
+  <i class="fas fa-star" data-value="5"></i>
+</div>
+<div id="thankYouBox" class="thank-you-box">
+  <span class="icon">✅</span>
+  <p>Thank you!</p>
+</div>
+ 
+ 
+<!-- Comment Box (Hidden by Default) -->
+<div id="commentBox" class="comment-box">
+  <h3>What’s your comment?</h3>
+  <textarea placeholder="Type your comment here..."></textarea>
+  <button id="sendComment">Send</button>
+</div>
+
+
+
+ 
+
+<script>
+  const stars = document.querySelectorAll("#starRating i");
+  const commentBox = document.getElementById("commentBox");
+  const thankYouBox = document.getElementById("thankYouBox");
+
+  stars.forEach(star => {
+    star.addEventListener("click", () => {
+      const value = parseInt(star.getAttribute("data-value"));
+
+      // Reset and apply star colors
+      stars.forEach(s => {
+        const v = parseInt(s.getAttribute("data-value"));
+        s.style.color = "#ccc";
+        if (v <= value) {
+          if (value === 1) s.style.color = "red";
+          else if (value === 2) s.style.color = "darkorange";
+          else if (value === 3) s.style.color = "gold";
+          else if (value === 4) s.style.color = "orange";
+          else if (value === 5) s.style.color = "green";
+        }
+      });
+
+      // Show comment box and hide thank-you
+      commentBox.style.display = "block";
+      thankYouBox.style.display = "none";
+    });
+  });
+
+  document.getElementById("sendComment").addEventListener("click", () => {
+    const textarea = commentBox.querySelector("textarea");
+    const comment = textarea.value.trim();
+
+    if (comment !== "") {
+      // Hide comment box and show thank you
+      commentBox.style.display = "none";
+      thankYouBox.style.display = "block";
+      textarea.value = "";
+    } else {
+      alert("Please enter a comment before sending.");
+    }
+  });
+</script>
+
+
+
+
+
+ <footer class="animated-footer">
+  <div class="social-icons">
+    <a href="https://www.facebook.com/yourprofile" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/yourprofile" target="_blank" title="GitHub" class="github"><i class="fab fa-github"></i></a>
+    <a href="https://www.tiktok.com/@yourprofile" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://t.me/yourprofile" target="_blank" title="Telegram" class="telegram"><i class="fab fa-telegram"></i></a>
+  </div>
+<p>&copy; 2025 <a href="https://reving.com" style="color: rgb(22, 173, 193); font-weight: bold; text-decoration: underline;">Reving</a>. All rights reserved.</p>
+</footer>
+
+ 
+
+ 
+
+<script>
+const skills = [
+  { name: "Logic Fundamentals", icon: "fa-brain" },
+  { name: "ITF Fundamentals", icon: "fa-file-word" },
+  { name: "Programming Practical", icon: "fa-code" },
+  { name: "Operating System", icon: "fa-desktop" },
+  { name: "Numerical Computing with MATLAB", icon: "fa-calculator" },
+  { name: "Networking", icon: "fa-network-wired" },
+  { name: "Object-Oriented Programming  (C#)", icon: "fa-cubes" },
+  { name: "Cybersecurity  (Algorithm)", icon: "fa-shield-alt" },
+   { name: "DBMS (Frontend)+  (Backend)", icon: "fa-database" },
+  { name: "Web Interface Design", icon: "fa-paint-brush" },
+  { name: "Visual Application Development", icon: "fa-laptop-code" },
+  { name: "Full-Stack Web Development", icon: "fa-code" },
+   { name: "Multimedia Processing and Production", icon: "fa-photo-video" },
+  { name: "Application Software Development", icon: "fa-cogs" }
+];
+
+const courseData = {
+  year1: {
+    sem1: ["Logic Theory + Practical", "ITF Practical (Word and Excel)"],
+    sem2: ["Programming Practical", "Operating System Theory + Practical", "MATLAB Practical", "Network 1 Practical"]
+  },
+  year2: {
+    sem1: ["OOP Practical", "Security Theory + Practical", "Network 2 Practical", "Database 1 (MS Access) Practical", "Web Design Practical"],
+    sem2: ["Visual Programming Practical", "Web Programming Practical", "Database 2 (SQL Server) Practical", "Multimedia Practical", "Software Application"]
+  }
+};
+
+const customCourseImages = {
+  "Logic Theory + Practical": "logic.png",
+  "ITF Practical (Word and Excel)": "abc.png",
+  "Programming Practical": "Programming Practicaly1s2.png",
+  "Operating System Theory + Practical": "images/os.jpg",
+  "MATLAB Practical": "images/matlab.jpg",
+  "Network 1 Practical": "images/network1.jpg",
+  "OOP Practical": "images/oop.jpg",
+  "Security Theory + Practical": "images/security.jpg",
+  "Network 2 Practical": "images/network2.jpg",
+  "Database 1 (MS Access) Practical": "images/db1.jpg",
+  "Web Design Practical": "images/webdesign.jpg",
+  "Visual Programming Practical": "images/visualprog.jpg",
+  "Web Programming Practical": "images/webprog.jpg",
+  "Database 2 (SQL Server) Practical": "images/db2.jpg",
+  "Multimedia Practical": "images/multimedia.jpg",
+  "Software Application": "images/softwareapp.jpg"
+};
+
+const coursePlaylistLinks = {
+  "Logic Theory + Practical": "https://www.youtube.com/playlist?list=LOGIC_PLAYLIST_ID",
+  "ITF Practical (Word and Excel)": "https://www.youtube.com/playlist?list=ITF_PLAYLIST_ID",
+  "Programming Practical": "https://www.youtube.com/playlist?list=PROGRAMMING_PLAYLIST_ID",
+  "Operating System Theory + Practical": "https://www.youtube.com/playlist?list=OS_PLAYLIST_ID",
+  "MATLAB Practical": "https://www.youtube.com/playlist?list=MATLAB_PLAYLIST_ID",
+  "Network 1 Practical": "https://www.youtube.com/playlist?list=NETWORK1_PLAYLIST_ID",
+  "OOP Practical": "https://www.youtube.com/playlist?list=OOP_PLAYLIST_ID",
+  "Security Theory + Practical": "https://www.youtube.com/playlist?list=SECURITY_PLAYLIST_ID",
+  "Network 2 Practical": "https://www.youtube.com/playlist?list=NETWORK2_PLAYLIST_ID",
+  "Database 1 (MS Access) Practical": "https://www.youtube.com/playlist?list=DB1_PLAYLIST_ID",
+  "Web Design Practical": "https://www.youtube.com/playlist?list=WEBDESIGN_PLAYLIST_ID",
+  "Visual Programming Practical": "https://www.youtube.com/playlist?list=VISUALPROG_PLAYLIST_ID",
+  "Web Programming Practical": "https://www.youtube.com/playlist?list=WEBPROG_PLAYLIST_ID",
+  "Database 2 (SQL Server) Practical": "https://www.youtube.com/playlist?list=DB2_PLAYLIST_ID",
+  "Multimedia Practical": "https://www.youtube.com/playlist?list=MULTIMEDIA_PLAYLIST_ID",
+  "Software Application": "https://www.youtube.com/playlist?list=SOFTWAREAPP_PLAYLIST_ID"
+};
+
+ function loadSkills() {
+      const container = document.getElementById("skillsGrid");
+      container.innerHTML = "";
+      skills.forEach(skill => {
+        container.innerHTML += `
+          <div class="skill-item" title="${skill.name}">
+            <i class="fas ${skill.icon} skill-icon"></i>
+            <div class="skill-name">${skill.name}</div>
+          </div>
+        `;
+      });
+    }
+
+    window.onload = loadSkills;
+
+
+
+function filterCourses() {
+  const year = document.getElementById("yearSelect").value;
+  const semester = document.getElementById("semesterSelect").value;
+  const container = document.getElementById("courseContainer");
+
+  if (!year || !semester) {
+    container.innerHTML = "";
+    return;
+  }
+
+  const courses = courseData[year][semester]; 
+container.innerHTML = "";
+
+courses.forEach(course => {
+  const imgSrc = customCourseImages[course] || 'images/default.jpg';
+  const playlistLink = coursePlaylistLinks[course] || "#";
+
+  container.innerHTML += `
+    <div class="course-card">
+      <img src="${imgSrc}" alt="${course}">
+      <div class="course-card-content">
+        <h3>${course}</h3>
+
+        <div class="course-meta" style="margin-top: 0.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <!-- Left side: Duration and lecture info -->
+            <div style="font-size: 0.9rem;">
+              <span style="color:#555; font-weight: 600;">⏱ Duration: 00:00:00</span>
+              <div style="margin-top: 0.4rem;">
+                📘 Total Lectures: XX &nbsp;&nbsp;
+                ✅ Published: XX &nbsp;&nbsp;
+                ⏳ Remaining: XX
+              </div>
+            </div>
+
+            <!-- Right side: 100% Free badge -->
+            <div style="
+              background: linear-gradient(135deg, #4CAF50, #2E7D32);
+              color: #fff;
+              padding: 6px 14px;
+              border-radius: 25px;
+              font-weight: bold;
+              font-size: 0.85rem;
+              box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+              margin-top: 0.5rem;
+              white-space: nowrap;
+            ">
+              🎁 100% Free
+            </div>
+          </div>
+        </div>
+
+        <div class="lecture-links" style="margin-top: 1rem;">
+          <a href="${playlistLink}" target="_blank" rel="noopener noreferrer">
+            <button style="background:#28a745; color: white; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer;">
+              🎥 Watch Video
+            </button>
+          </a>
+        </div>
+
+        <div class="course-card-buttons" style="margin-top: 0.5rem;">
+          <button class="more-info" onclick="showMoreInfo('${course}', '${year}', '${semester}')" style="padding: 8px 12px; border-radius: 6px; background: #007bff; color: white; border: none; cursor: pointer;">
+            More Info
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+});
+
+window.onload = () => {
+  loadSkills();
+}};
+
+</script>
+</script>
+
+
+<!-- Modal Box -->
+<div id="infoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalCourseTitle">Course Title</h2>
+    <p><strong>📅 Year:</strong> <span id="modalYear"></span></p>
+    <p><strong>📚 Semester:</strong> <span id="modalSemester"></span></p>
+    <p><strong>🎬 Number of Videos:</strong> <span id="modalVideos"></span></p>
+    <p><strong>📉 Left Videos:</strong> <span id="modalLeft"></span></p>
+    <p><strong>⏱ Duration:</strong> <span id="modalDuration"></span></p>
+  </div>
+</div>
+ 
+<script>
+  function showMoreInfo(course, year, semester) {
+  document.getElementById('modalCourseTitle').textContent = course;
+  document.getElementById('modalYear').textContent = year.toUpperCase();
+  document.getElementById('modalSemester').textContent = semester.toUpperCase();
+  document.getElementById('modalVideos').textContent = "XX"; // Change manually
+  document.getElementById('modalLeft').textContent = "XX";   // Change manually
+  document.getElementById('modalDuration').textContent = "00:00:00"; // Change manually
+  document.getElementById('infoModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('infoModal').style.display = "none";
+}
+
+</script>
+
+
+</body>
+</html>

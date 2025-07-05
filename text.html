@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reving's Personal Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+
+    :root {
+      --bg: #000000;
+      --clr-1: #00c2ff;
+      --clr-2: #33ff8c;
+      --clr-3: #ffc640;
+      --clr-4: #e54cff;
+      --clr-5: #ff005e;
+      --clr-6: #00ffea;
+      --clr-7: #ff9900;
+      --blur: 1rem;
+      --fs: clamp(3rem, 8vw, 7rem);
+      --ls: clamp(-1.75px, -0.25vw, -3.5px);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background-color: var(--bg);
+      color: #fff;
+      font-family: "Inter", "DM Sans", Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .content {
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .title {
+       font-weight: 800;
+      letter-spacing: var(--ls);
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .title span {
+      display: inline-block;
+      opacity: 0;
+      animation: typing 3s forwards;
+      font-weight: 800;
+    }
+
+    .title img {
+      width: 40px;
+      height: 40px;
+      margin-left: 12px;
+      vertical-align: middle;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    @keyframes typing {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Add color styles */
+    .c1 { color: var(--clr-1); }
+    .c2 { color: var(--clr-2); }
+    .c3 { color: var(--clr-3); }
+    .c4 { color: var(--clr-4); }
+    .c5 { color: var(--clr-5); }
+    .c6 { color: var(--clr-6); }
+    .c7 { color: var(--clr-7); }
+
+    .aurora {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      mix-blend-mode: darken;
+      pointer-events: none;
+    }
+
+    .aurora__item {
+      overflow: hidden;
+      position: absolute;
+      width: 60vw;
+      height: 60vw;
+      background-color: var(--clr-1);
+      border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+      filter: blur(var(--blur));
+      mix-blend-mode: overlay;
+    }
+
+    .aurora__item:nth-of-type(1) {
+      top: -50%;
+      animation: aurora-border 6s ease-in-out infinite, aurora-1 12s ease-in-out infinite alternate;
+    }
+
+    .aurora__item:nth-of-type(2) {
+      background-color: var(--clr-3);
+      right: 0;
+      top: 0;
+      animation: aurora-border 6s ease-in-out infinite, aurora-2 12s ease-in-out infinite alternate;
+    }
+
+    .aurora__item:nth-of-type(3) {
+      background-color: var(--clr-2);
+      left: 0;
+      bottom: 0;
+      animation: aurora-border 6s ease-in-out infinite, aurora-3 8s ease-in-out infinite alternate;
+    }
+
+    .aurora__item:nth-of-type(4) {
+      background-color: var(--clr-4);
+      right: 0;
+      bottom: -50%;
+      animation: aurora-border 6s ease-in-out infinite, aurora-4 24s ease-in-out infinite alternate;
+    }
+
+    @keyframes aurora-1 {
+      0% { top: 0; right: 0; }
+      50% { top: 100%; right: 75%; }
+      75% { top: 100%; right: 25%; }
+      100% { top: 0; right: 0; }
+    }
+
+    @keyframes aurora-2 {
+      0% { top: -50%; left: 0%; }
+      60% { top: 100%; left: 75%; }
+      85% { top: 100%; left: 25%; }
+      100% { top: -50%; left: 0%; }
+    }
+
+    @keyframes aurora-3 {
+      0% { bottom: 0; left: 0; }
+      40% { bottom: 100%; left: 75%; }
+      65% { bottom: 40%; left: 50%; }
+      100% { bottom: 0; left: 0; }
+    }
+
+    @keyframes aurora-4 {
+      0% { bottom: -50%; right: 0; }
+      50% { bottom: 0%; right: 40%; }
+      90% { bottom: 50%; right: 25%; }
+      100% { bottom: -50%; right: 0; }
+    }
+
+    @keyframes aurora-border {
+      0% { border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; }
+      25% { border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%; }
+      50% { border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%; }
+      75% { border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%; }
+      100% { border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora">
+    <div class="aurora__item"></div>
+    <div class="aurora__item"></div>
+    <div class="aurora__item"></div>
+    <div class="aurora__item"></div>
+  </div>
+
+  <div class="content">
+    <h1 class="title">
+      <!-- Colored letter spans with delays -->
+      <span class="c1" style="animation-delay: 0s">R</span>
+      <span class="c2" style="animation-delay: 0.15s">e</span>
+      <span class="c3" style="animation-delay: 0.3s">v</span>
+      <span class="c4" style="animation-delay: 0.45s">i</span>
+      <span class="c5" style="animation-delay: 0.6s">n</span>
+      <span class="c6" style="animation-delay: 0.75s">g</span>
+      <span class="c7" style="animation-delay: 0.9s">'</span>
+      <span class="c1" style="animation-delay: 1.05s">s</span>
+      <span class="c2" style="animation-delay: 1.2s">&nbsp;</span>
+      <span class="c3" style="animation-delay: 1.35s">P</span>
+      <span class="c4" style="animation-delay: 1.5s">e</span>
+      <span class="c5" style="animation-delay: 1.65s">r</span>
+      <span class="c6" style="animation-delay: 1.8s">s</span>
+      <span class="c7" style="animation-delay: 1.95s">o</span>
+      <span class="c1" style="animation-delay: 2.1s">n</span>
+      <span class="c2" style="animation-delay: 2.25s">a</span>
+      <span class="c3" style="animation-delay: 2.4s">l</span>
+      <span class="c4" style="animation-delay: 2.55s">&nbsp;</span>
+      <span class="c5" style="animation-delay: 2.7s">W</span>
+      <span class="c6" style="animation-delay: 2.85s">e</span>
+      <span class="c7" style="animation-delay: 3s">b</span>
+      <span class="c1" style="animation-delay: 3.15s">s</span>
+      <span class="c2" style="animation-delay: 3.3s">i</span>
+      <span class="c3" style="animation-delay: 3.45s">t</span>
+      <span class="c4" style="animation-delay: 3.6s">e</span>
+      <img src="kurdish.png" alt="Kurdish flag" />
+    </h1>
+  </div>
+</body>
+</html>
